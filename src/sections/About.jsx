@@ -78,30 +78,7 @@ const About = () => {
               ))}
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-4 border-l-2 border-[#00f0ff] pl-6 py-2"
-            >
-              <h3 className="text-white text-xl font-semibold mb-3">Experience</h3>
-              <ul className="space-y-4 text-sm">
-                {[
-                  { period: "2023 - Present", role: "Senior Frontend Engineer @ TechCorp" },
-                  { period: "2021 - 2023", role: "Web Developer @ StartupInc" }
-                ].map((exp, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  >
-                    <span className="text-[#00f0ff] font-mono">{exp.period}</span>
-                    <p className="text-white font-medium mt-0.5">{exp.role}</p>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+         
           </div>
 
           {/* Profile image */}

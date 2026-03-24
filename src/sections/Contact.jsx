@@ -1,19 +1,46 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 const socialLinks = [
-  { Icon: Github, href: "https://github.com", label: "GitHub" },
-  { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { Icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+  { Icon: Github, href: "https://github.com/amritraj006", label: "GitHub" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/amrit-raj-54652b294/", label: "LinkedIn" },
+  { Icon: Mail, href: "mailto:amritraj8887@gmail.com", label: "Email" },
 ];
 
 const Contact = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const formRef = useRef(null);
+
+  const [result, setResult] = useState("");
+
   const isHeadingInView = useInView(headingRef, { once: false, margin: "-80px" });
   const isFormInView = useInView(formRef, { once: false, margin: "-80px" });
+
+  // ✅ ADDED SUBMIT FUNCTION ONLY
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+
+    const formData = new FormData(event.target);
+    formData.append("access_key", "cf7b6cdc-ab31-40a6-852c-e1ac32ac5a60");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
 
   return (
     <section
@@ -42,6 +69,7 @@ const Contact = () => {
         >
           06. What's Next?
         </motion.p>
+
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           animate={isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -50,6 +78,7 @@ const Contact = () => {
         >
           Get In Touch
         </motion.h3>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -60,15 +89,18 @@ const Contact = () => {
           Whether you have a question or just want to say hi, I'll try my best to get back to you!
         </motion.p>
 
-        {/* Form */}
-        <div ref={formRef} className="flex flex-col gap-5 w-full max-w-md mx-auto">
+        {/* ✅ ONLY WRAPPED WITH FORM */}
+        <form onSubmit={onSubmit} ref={formRef} className="flex flex-col gap-5 w-full max-w-md mx-auto">
+          
           {[
-            { type: "text", placeholder: "Your Name" },
-            { type: "email", placeholder: "Your Email" },
+            { type: "text", placeholder: "Your Name", name: "name" },
+            { type: "email", placeholder: "Your Email", name: "email" },
           ].map((field, i) => (
             <motion.input
               key={field.placeholder}
               type={field.type}
+              name={field.name}   // ✅ added
+              required
               placeholder={field.placeholder}
               initial={{ opacity: 0, x: -30 }}
               animate={isFormInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
@@ -76,7 +108,10 @@ const Contact = () => {
               className="w-full bg-[#111]/80 border border-gray-800 rounded-lg px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.15)] transition-all duration-300 text-sm"
             />
           ))}
+
           <motion.textarea
+            name="message"   // ✅ added
+            required
             placeholder="Your Message"
             rows="5"
             initial={{ opacity: 0, x: -30 }}
@@ -86,6 +121,7 @@ const Contact = () => {
           />
 
           <motion.button
+            type="submit"   // ✅ added
             initial={{ opacity: 0, y: 20 }}
             animate={isFormInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -94,10 +130,15 @@ const Contact = () => {
             className="group relative mt-2 px-8 py-4 font-semibold rounded-lg border-2 border-[#00f0ff] text-[#00f0ff] overflow-hidden"
           >
             <span className="absolute inset-0 w-full h-full bg-[#00f0ff] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-            <span className="relative z-10 group-hover:text-black transition-colors duration-300">Say Hello</span>
+            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+              Say Hello
+            </span>
           </motion.button>
 
-          {/* Social Icons */}
+          {/* ✅ result message */}
+          <span className="text-sm text-gray-400">{result}</span>
+
+          {/* Social Icons (unchanged) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isFormInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -120,7 +161,7 @@ const Contact = () => {
               </motion.a>
             ))}
           </motion.div>
-        </div>
+        </form>
 
         <motion.div
           initial={{ opacity: 0 }}

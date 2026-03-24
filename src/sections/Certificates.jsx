@@ -11,25 +11,29 @@ const certificates = [
     title: "Privacy and Security in Online Social Media",
     issuer: "NPTEL",
     image: imgNptel,
-    year: "Recent"
+    year: "Recent",
+    onCLick: "https://archive.nptel.ac.in/content/noc/NOC25/SEM2/Ecertificates/106/noc25-cs117/Course/NPTEL25CS117S135870179410359342.pdf"
   },
   {
     title: "ChatGPT-4 Prompt Engineering, Generative AI & LLM",
     issuer: "Infosys",
     image: imgChatgpt4,
-    year: "Recent"
+    year: "Recent",
+    onClick: "https://drive.google.com/file/d/1-ZQOIiDRgriflMSZVawNIxIhyGro-Ori/view"
   },
   {
     title: "Computational Theory: Language Principle & Finite Automata Theory",
     issuer: "Infosys",
     image: imgComputation,
-    year: "Recent"
+    year: "Recent",
+    onClick: "https://drive.google.com/file/d/1fhbL_JpFai0PkzpnzZTPfInlFYJNIwkf/view"
   },
   {
     title: "The Bits and Bytes of Computer Networking",
     issuer: "Coursera",
     image: imgBits,
-    year: "Recent"
+    year: "Recent",
+    onCLick: "https://www.coursera.org/account/accomplishments/verify/QIN25SFVXWQ7?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
   }
 ];
 
@@ -105,7 +109,8 @@ const Certificates = () => {
             return (
               <motion.a
                 key={index}
-                href="#"
+                href={cert.onCLick}
+                target='_blank'
                 ref={rowRef}
                 initial={{ opacity: 0, y: 30 }}
                 animate={rowInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
