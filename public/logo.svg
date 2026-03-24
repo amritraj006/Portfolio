@@ -1,0 +1,89 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="secondaryGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#EC489A"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feMerge>
+        <feMergeNode in="offsetblur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer ring with gradient and rotation -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="url(#primaryGrad)" stroke-width="2.5">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="16s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Second ring with dash pattern -->
+  <circle cx="100" cy="100" r="78" fill="none" stroke="url(#secondaryGrad)" stroke-width="1.8" stroke-dasharray="5 7" stroke-dashoffset="0">
+    <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="20s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Abstract A + R fusion icon -->
+  <g filter="url(#softGlow)">
+    <!-- Left curve (A shape) -->
+    <path d="M68,135 L52,65 L70,65 L80,95 L92,65 L110,65 L94,135 L78,135 L70,110 L62,135 L68,135 Z" 
+          fill="url(#primaryGrad)" opacity="0.92">
+      <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Right curve (R shape) with dynamic leg -->
+    <path d="M115,65 L115,135 L131,135 L131,108 L146,108 C154,108 160,102 160,94 C160,86 154,80 146,80 L131,80 L131,65 L115,65 Z M131,95 L131,80 L144,80 C148,80 150,84 150,87.5 C150,91 148,95 144,95 L131,95 Z" 
+          fill="url(#secondaryGrad)" opacity="0.92">
+      <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Floating particles - dynamic movement -->
+  <circle cx="42" cy="58" r="3" fill="#3B82F6">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="162" cy="152" r="3" fill="#EC489A">
+    <animate attributeName="r" values="3;5;3" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="28" cy="128" r="2.5" fill="#A855F7">
+    <animate attributeName="r" values="2.5;4;2.5" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="172" cy="72" r="2.5" fill="#3B82F6">
+    <animate attributeName="r" values="2.5;4;2.5" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="88" cy="28" r="2" fill="#A855F7">
+    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="118" cy="172" r="2" fill="#EC489A">
+    <animate attributeName="r" values="2;3.5;2" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Orbiting small dots -->
+  <g>
+    <circle cx="100" cy="28" r="2" fill="#3B82F6">
+      <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite" additive="sum"/>
+    </circle>
+    <circle cx="172" cy="100" r="2" fill="#A855F7">
+      <animateTransform attributeName="transform" type="rotate" from="90 100 100" to="450 100 100" dur="10s" repeatCount="indefinite" additive="sum"/>
+    </circle>
+    <circle cx="100" cy="172" r="2" fill="#EC489A">
+      <animateTransform attributeName="transform" type="rotate" from="180 100 100" to="540 100 100" dur="10s" repeatCount="indefinite" additive="sum"/>
+    </circle>
+    <circle cx="28" cy="100" r="2" fill="#3B82F6">
+      <animateTransform attributeName="transform" type="rotate" from="270 100 100" to="630 100 100" dur="10s" repeatCount="indefinite" additive="sum"/>
+    </circle>
+  </g>
+
+  <!-- Central glow point -->
+  <circle cx="100" cy="100" r="6" fill="white">
+    <animate attributeName="r" values="6;9;6" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="100" r="3" fill="url(#primaryGrad)"/>
+</svg>
