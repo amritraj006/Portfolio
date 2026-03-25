@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 
 const stats = [
   { value: "2+", label: "Years Experience" },
-  { value: "15+", label: "Projects Built" },
+  { value: "5+", label: "Projects Built" },
   { value: "10+", label: "Technologies" },
   { value: "100%", label: "Passion" },
 ];
@@ -39,8 +39,11 @@ const About = () => {
           {/* Text Content */}
           <div ref={textRef} className="flex flex-col gap-6">
             {[
-              "Hello! My name is Amrit and I enjoy creating things that live on the internet. My interest in web development started when I decided to try editing custom themes — turns out hacking HTML & CSS taught me a lot!",
-              "Fast-forward to today, I've had the privilege of working at agencies, startups, and design studios. My focus these days is building accessible, inclusive digital experiences."
+              "I’m a BTech CSE student who enjoys turning ideas into real web applications. Whether it’s building full stack projects or solving practical problems, I focus on creating solutions that are simple, useful, and user-friendly."
+,
+"I work with modern web technologies across frontend and backend, but what really defines my approach is curiosity—learning new tools, improving my skills, and building projects that solve real-world problems.",
+
+"Still learning, still building, and always aiming to create work that makes an impact."
             ].map((para, i) => (
               <motion.p
                 key={i}
@@ -105,7 +108,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-20 transition-opacity duration-700" />
               <img
-                src="https://media.licdn.com/dms/image/v2/D5635AQFA6Fxu5i9R5A/profile-framedphoto-shrink_400_400/B56Zzqmv_lHUAc-/0/1773462552836?e=1774519200&v=beta&t=WcceQOkouV0yOSGlplxmyTTO_cvircv1McyM3TV9KPQ"
+                src='profile.jpg'
                 alt="Amrit Raj"
                 className="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out"
               />

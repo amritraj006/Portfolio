@@ -51,7 +51,7 @@ const Hero = () => {
               sequence={[
                 'I build things for the web.',
                 2000,
-                'I create modern applications.',
+                'I create modern web apps.',
                 2000,
                 'I design premium interfaces.',
                 2000,
@@ -63,10 +63,14 @@ const Hero = () => {
               className="inline-block"
             />
           </motion.div>
-          <motion.p variants={fadeUpVariant} className="text-gray-400 max-w-xl text-lg leading-relaxed mt-4">
-            I'm a software engineer specializing in building exceptional digital experiences. 
-            Currently, I'm focused on building premium, accessible, and high-performance products.
-          </motion.p>
+
+          <motion.p 
+  variants={fadeUpVariant} 
+  className="text-gray-400 max-w-xl text-lg leading-relaxed mt-4"
+>
+I’m a BTech CSE student passionate about full stack development and building practical web applications. I enjoy creating simple and user-friendly solutions.
+</motion.p>
+          
           
           <motion.div variants={fadeUpVariant} className="flex gap-4 mt-8">
             <a href="#projects" className="px-8 py-4 bg-white text-black font-semibold rounded hover:bg-transparent hover:text-white border-2 border-white transition-all duration-300">

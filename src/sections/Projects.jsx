@@ -4,32 +4,32 @@ import { Github, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
-    title: "Project Alpha",
-    description: "A minimal, dark-theme app utilizing advanced scroll interactions and Framer Motion, delivering a premium user experience.",
-    tech: ["React", "Express", "MongoDB", "GSAP"],
-    github: "#",
-    live: "#"
+    title: "SkillBridge",
+    description: "A SkillBridge platform designed to connect learners with relevant opportunities, featuring user authentication, course enrollment, and personalized learning pathways.",
+    tech: ["React", "Express", "MongoDB", "Node", "Clerk"],
+    github: "https://github.com/amritraj006/SkillBridge",
+    live: "https://skill-bridge-ykko.onrender.com/"
   },
   {
-    title: "E-Commerce Beta",
-    description: "A robust e-commerce platform with elegant micro-interactions, seamless cart functionality, and integrated secure payments.",
-    tech: ["Next.js", "Tailwind CSS", "Stripe", "Prisma"],
-    github: "#",
-    live: "#"
+    title: "Tracker",
+    description: "Developed a real-time vehicle tracking simulation that enables live location updates, route visualization, speed monitoring, and efficient tracking of multiple vehicles on an interactive interface.",
+    tech: ["React", "Node", "MongoDB", "Leaflet.js", "Express"],
+    github: "https://github.com/amritraj006/Real-Time-Vehicle-Tracking",
+    live: "https://real-time-vehicle-tracking-frontend.onrender.com"
   },
   {
-    title: "Analytics Dashboard",
-    description: "Real-time data visualization tool for enterprise users with interactive charts and customizable layouts.",
-    tech: ["Vue.js", "D3.js", "Node", "PostgreSQL"],
-    github: "#",
-    live: "#"
+    title: "ShopHub",
+    description: "A ShopHub e-commerce platform that enables users to browse products, manage carts, and complete secure purchases with an intuitive shopping experience.",
+    tech: ["React", "Node", "Express", "MongoDB", "Stripe"],
+    github: "https://github.com/amritraj006/Shop-Hub",
+    live: "https://shop-hub-bt8j.onrender.com"
   },
   {
-    title: "Social Sphere",
-    description: "A modern social media PWA built for communities, featuring live sockets and dynamic content loading.",
-    tech: ["Svelte", "Firebase", "WebSockets", "Tailwind"],
-    github: "#",
-    live: "#"
+    title: "Career AI",
+    description: "A Career AI platform that helps users explore career paths, take assessments, and receive personalized recommendations based on their interests and performance.",
+    tech: ["React", "Framer Motion", "Node", "Express", "MySQL", 'Gemini API'],
+    github: "https://github.com/amritraj006/Career-AI-MERN",
+    live: "https://career-ai-web.onrender.com"
   }
 ];
 
@@ -81,10 +81,10 @@ const ProjectCard = ({ project, index }) => {
             </svg>
           </div>
           <div className="flex gap-4 items-center">
-            <motion.a href={project.github} whileHover={{ scale: 1.2, y: -2 }} className="text-gray-400 hover:text-[#00f0ff] transition-colors">
+            <motion.a href={project.github} target='_blank' whileHover={{ scale: 1.2, y: -2 }} className="text-gray-400 hover:text-[#00f0ff] transition-colors">
               <Github className="w-5 h-5"/>
             </motion.a>
-            <motion.a href={project.live} whileHover={{ scale: 1.2, y: -2 }} className="text-gray-400 hover:text-[#00f0ff] transition-colors">
+            <motion.a href={project.live} target='_blank' whileHover={{ scale: 1.2, y: -2 }} className="text-gray-400 hover:text-[#00f0ff] transition-colors">
               <ExternalLink className="w-5 h-5"/>
             </motion.a>
           </div>
