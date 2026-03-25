@@ -94,7 +94,7 @@ const Navbar = () => {
                <Code className="text-[#00f0ff] group-hover:rotate-12 transition-transform duration-300" size={isScrolled ? 18 : 28} />
             </div>
             <span className={`bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 transition-all font-sans ${isScrolled ? 'text-lg' : 'text-2xl'}`}>
-              Dev<span></span>
+              AR<span></span>
             </span>
           </a>
 
