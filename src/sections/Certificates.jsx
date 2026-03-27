@@ -12,7 +12,7 @@ const certificates = [
     issuer: "NPTEL",
     image: imgNptel,
     year: "Recent",
-    onCLick: "https://archive.nptel.ac.in/content/noc/NOC25/SEM2/Ecertificates/106/noc25-cs117/Course/NPTEL25CS117S135870179410359342.pdf"
+    onClick: "https://archive.nptel.ac.in/content/noc/NOC25/SEM2/Ecertificates/106/noc25-cs117/Course/NPTEL25CS117S135870179410359342.pdf"
   },
   {
     title: "ChatGPT-4 Prompt Engineering, Generative AI & LLM",
@@ -33,7 +33,7 @@ const certificates = [
     issuer: "Coursera",
     image: imgBits,
     year: "Recent",
-    onCLick: "https://www.coursera.org/account/accomplishments/verify/QIN25SFVXWQ7?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+    onClick: "https://www.coursera.org/account/accomplishments/verify/QIN25SFVXWQ7?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
   }
 ];
 
@@ -109,7 +109,7 @@ const Certificates = () => {
             return (
               <motion.a
                 key={index}
-                href={cert.onCLick}
+                href={cert.onClick}
                 target='_blank'
                 ref={rowRef}
                 initial={{ opacity: 0, y: 30 }}
